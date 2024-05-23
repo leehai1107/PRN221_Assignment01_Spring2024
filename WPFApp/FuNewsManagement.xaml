@@ -1,0 +1,21 @@
+﻿<Window x:Class="WPFApp.FuNewsManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFApp"
+        mc:Ignorable="d"
+        Title="FuNewsManagement" Height="350" Width="600" WindowStartupLocation="CenterScreen">
+    <Grid Loaded="Grid_Loaded">
+        <Label FontWeight="Bold" Content="👤 Wellcome," HorizontalAlignment="Left" Margin="52,40,0,0" VerticalAlignment="Top" Width="112" FontSize="16" Height="35"/>
+        <Label x:Name="lbUsername" FontSize="16" Content="UserName" HorizontalAlignment="Left" Margin="158,40,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF20436C"/>
+        <Button x:Name="btnNewsArticle" FontWeight="Bold" Content="📰 News Article" HorizontalAlignment="Left" Margin="46,0,0,0" VerticalAlignment="Center" Height="48" Width="121" Click="btnNewsArticle_Click" FontSize="14" Foreground="#FF1D183C" Background="#FFC9C1E5"/>
+        <Button x:Name="btnAccount"  FontWeight="Bold" Content="👥 Account" HorizontalAlignment="Left" VerticalAlignment="Center" Height="48" Width="120" Click="btnAccount_Click" FontSize="14" Margin="242,0,0,0" Background="#FFFAF5A8" Foreground="#FF442C2C"/>
+        <Button x:Name="btnCategory" FontWeight="Bold" Content="🎫 Category" HorizontalAlignment="Left" Margin="426,0,0,0" VerticalAlignment="Center" Height="48" Width="121" Click="btnCategory_Click" FontSize="14" Background="#FFB9E2E2"/>
+        <Button x:Name="btnClose" FontWeight="Bold" Background="#FFC33030" Foreground="White"  Content="❌ Logout" HorizontalAlignment="Left" Margin="214,269,0,0" VerticalAlignment="Top" Width="176" Height="33" Click="btnClose_Click" FontSize="14"/>
+        <Button x:Name="btnReport" FontWeight="Bold" Content="🧾 Report" HorizontalAlignment="Left" Margin="492,269,0,0" VerticalAlignment="Top" Height="33" Width="73" Background="#FF89CE97" Foreground="Black" Click="btnReport_Click"/>
+        <Button x:Name="btnHistory"  FontWeight="Bold" Content="💾 History" HorizontalAlignment="Left" Margin="46,204,0,0" VerticalAlignment="Top" Width="121" Height="27" Background="#FFD4BC7F" Click="btnHistory_Click"/>
+        <Label FontSize="16" FontWeight="Bold" Content="⬆" HorizontalAlignment="Left" Margin="99,178,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

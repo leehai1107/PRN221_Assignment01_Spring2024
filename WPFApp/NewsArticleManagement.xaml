@@ -1,0 +1,86 @@
+﻿<Window x:Class="WPFApp.NewsArticleManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFApp"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="NewsArticleManagement" Height="700" Width="1000" WindowStartupLocation="CenterScreen">
+
+    <Grid Loaded="Grid_Loaded">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Label Content="ID" HorizontalAlignment="Left" Margin="23,23,0,0" VerticalAlignment="Top" Width="43" Height="25"/>
+            <TextBox x:Name="txtArticleId" HorizontalAlignment="Center" Margin="0,28,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Margin="83,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="193" Height="34"/>
+            <Label Content="Title" HorizontalAlignment="Left" Margin="23,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.505,0.213"/>
+            <Label Content="Content" HorizontalAlignment="Left" Margin="21,112,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtContent" HorizontalAlignment="Left" Margin="83,125,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="193" Height="98"/>
+            <Label Content="Category" HorizontalAlignment="Left" Margin="16,237,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cbCategory" DisplayMemberPath="CategoryName" HorizontalAlignment="Left" Margin="91,237,0,0" VerticalAlignment="Top" Width="156"/>
+            <Label Content="Status" HorizontalAlignment="Left" Margin="21,276,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="rbStatusTrue" IsChecked="True" Content="Active" HorizontalAlignment="Left" Margin="95,282,0,0" VerticalAlignment="Top"/>
+            <RadioButton x:Name="rbStatusFlase" Content="Inactive" HorizontalAlignment="Left" Margin="180,282,0,0" VerticalAlignment="Top"/>
+            <Label Content="CreateBy" HorizontalAlignment="Left" Margin="20,320,0,0" VerticalAlignment="Top"/>
+            <ComboBox  x:Name="cbCreateBy" DisplayMemberPath="AccountName" HorizontalAlignment="Left" Margin="90,324,0,0" VerticalAlignment="Top" Width="157"/>
+            <Label Content="CreateDate" HorizontalAlignment="Left" Margin="10,362,0,0" VerticalAlignment="Top"/>
+            <DatePicker x:Name="dpCreateDate" HorizontalAlignment="Left" Margin="95,364,0,0" VerticalAlignment="Top" Width="152" IsEnabled="False" SelectedDate="{x:Static sys:DateTime.Now}" />
+            <Label Content="ModifiedDate" HorizontalAlignment="Left" Margin="7,396,0,0" VerticalAlignment="Top"/>
+            <DatePicker x:Name="dpModifiedDate" IsEnabled="False" HorizontalAlignment="Left" Margin="95,396,0,0" VerticalAlignment="Top" Width="152" SelectedDate="{x:Static sys:DateTime.Now}" />
+            <Label Content="NewsTags" HorizontalAlignment="Left" Margin="12,427,0,0" VerticalAlignment="Top"/>
+            <ListBox x:Name="lbNewsTags" Margin="95,427,25,114" SelectionMode="Multiple" DisplayMemberPath="TagName"/>
+            <Button x:Name="btnNew" Content="New" HorizontalAlignment="Left" Margin="108,592,0,0" VerticalAlignment="Top" Width="74" Click="btnNew_Click" Height="25" FontWeight="Bold"/>
+            <Button x:Name="btnClose" FontWeight="Bold" Content="Close"  Background="#FFC33030" Foreground="White" FontSize="16" HorizontalAlignment="Left" Margin="61,631,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.563,0.106" Width="179" Click="btnClose_Click" Height="28"/>
+            <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="194,592,0,0" VerticalAlignment="Top" Width="74" Height="25" Click="btnDelete_Click" Background="#FFD68888" FontWeight="Bold"/>
+            <Button x:Name="btnReload" Content="Reload" HorizontalAlignment="Left" Margin="18,592,0,0" VerticalAlignment="Top" Width="74" Click="btnReload_Click" Height="25" FontWeight="Bold" Background="#FF94ED8F"/>
+
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="4.8*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="183*"/>
+                    <ColumnDefinition Width="55*"/>
+                </Grid.ColumnDefinitions>
+
+                <ListView x:Name="lvNewsArticles" MouseLeftButtonUp="lvNewsArticles_MouseLeftButtonUp" MouseDoubleClick="lvNewsArticles_MouseDoubleClick" Grid.ColumnSpan="2">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ArticleId" Width="50" DisplayMemberBinding="{Binding NewsArticleId}"/>
+                            <GridViewColumn Header="NewsTitle" Width="110" DisplayMemberBinding="{Binding NewsTitle}"/>
+                            <GridViewColumn Header="NewsContent" Width="120" DisplayMemberBinding="{Binding NewsContent}"/>
+                            <GridViewColumn Header="Category" Width="90" DisplayMemberBinding="{Binding Path= Category.CategoryName}"/>
+                            <GridViewColumn Header="Status" Width="40" DisplayMemberBinding="{Binding NewsStatus}"/>
+                            <GridViewColumn Header="CreatedBy" Width="100" DisplayMemberBinding="{Binding Path= CreatedBy.AccountName}"/>
+                            <GridViewColumn Header="NewsTags" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox ItemsSource="{Binding Tags}" DisplayMemberPath="TagName" SelectedIndex="0"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="CreatedDate" Width="80" DisplayMemberBinding="{Binding CreatedDate}"/>
+                            <GridViewColumn Header="ModifiedDate" Width="80" DisplayMemberBinding="{Binding ModifiedDate}"/>
+                        </GridView>
+                    </ListView.View>
+
+                </ListView>
+            </Grid>
+            <Grid Grid.Row="0">
+                <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="604,0,0,0" VerticalAlignment="Center" Width="84" Background="#FFF3D8D8" Click="btnSearch_Click"/>
+                <TextBox x:Name="txtSearch" Height="23" HorizontalAlignment="Left" Margin="444,0,0,0" TextWrapping="Wrap" Text="Enter news title" VerticalAlignment="Center" Width="146" RenderTransformOrigin="0.498,0.331"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

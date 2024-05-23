@@ -1,0 +1,26 @@
+﻿<Window x:Class="WPFApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFApp"
+        mc:Ignorable="d"
+        Title="FUNewsManagementApp" Height="260" Width="500" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,0,0" Loaded="Grid_Loaded">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="217*"/>
+            <ColumnDefinition Width="183*"/>
+        </Grid.ColumnDefinitions>
+        <Label FontWeight="Bold" Content="📧 Email" HorizontalAlignment="Left" Height="29" Margin="38,67,0,0" VerticalAlignment="Top" Width="83"/>
+
+        <Label FontWeight="Bold" Content="🔑 Password" HorizontalAlignment="Left" Height="29" Margin="38,117,0,0" VerticalAlignment="Top" Width="83"/>
+
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="29" Margin="136,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="301" Grid.ColumnSpan="2" />
+
+        <Button Content="Login" FontWeight="Bold" x:Name="btnLogin" HorizontalAlignment="Left" Height="25" Margin="136,174,0,0" VerticalAlignment="Top" Width="86" Click="btnLogin_Click" Background="#FF58A3E8" />
+
+        <Button Content="Exit" FontWeight="Bold" x:Name="btnExit" HorizontalAlignment="Center" Height="25" Margin="0,174,0,0" VerticalAlignment="Top" Width="85" Grid.Column="1" Click="btnExit_Click" Background="#FFE87777" Foreground="White" />
+        <PasswordBox x:Name="txtPassword" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="136,119,0,0" VerticalAlignment="Top" Width="301" Height="29"/>
+        <Label Content="FU News Management App" HorizontalAlignment="Left" Margin="145,18,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="283" Background="White" FontFamily="Global Sans Serif" FontSize="20" FontWeight="Bold" Foreground="#FFE06B19"/>
+    </Grid>
+</Window>

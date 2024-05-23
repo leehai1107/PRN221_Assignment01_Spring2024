@@ -1,0 +1,58 @@
+﻿<Window x:Class="WPFApp.SystemAccountManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFApp"
+        mc:Ignorable="d"
+        Title="SystemAccountManagement" Height="400" Width="1000" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.6*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Label Content="AccountId" HorizontalAlignment="Left" Height="32" Margin="23,29,0,0" VerticalAlignment="Top" Width="90"/>
+            <Label Content="AccountName" HorizontalAlignment="Left" Height="33" Margin="23,66,0,0" VerticalAlignment="Top" Width="90"/>
+            <Label Content="AccountEmail" HorizontalAlignment="Left" Height="29" Margin="23,104,0,0" VerticalAlignment="Top" Width="90"/>
+            <Label Content="AccountRole" HorizontalAlignment="Left" Margin="23,138,0,0" VerticalAlignment="Top" Width="90" Height="34"/>
+            <Label Content="AccountPassword" HorizontalAlignment="Left" Margin="23,177,0,0" VerticalAlignment="Top" Width="105"/>
+            <TextBox x:Name="txtAccountId" HorizontalAlignment="Left" Height="21" Margin="142,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143" RenderTransformOrigin="0.477,2.438"/>
+            <TextBox x:Name="txtAccountName" HorizontalAlignment="Left" Margin="143,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="142" Height="21"/>
+            <TextBox x:Name="txtAccountEmail" HorizontalAlignment="Left" Margin="142,107,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
+            <TextBox x:Name="txtAccountRole" HorizontalAlignment="Left" Margin="143,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="142"/>
+            <TextBox x:Name="txtAccountPass" HorizontalAlignment="Left" Margin="142,181,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
+            <Button x:Name="btnNew" FontWeight="Bold" Content="New" HorizontalAlignment="Center" Margin="0,252,0,0" VerticalAlignment="Top" Width="99" Height="37" Click="btnNew_Click"/>
+            <Button x:Name="btnClose" FontWeight="Bold" Background="#FFC33030" Foreground="White" FontSize="16" Content="Close" HorizontalAlignment="Center" Margin="0,313,0,0" VerticalAlignment="Top" Width="200" Height="30" RenderTransformOrigin="0.503,1.005" Click="btnClose_Click"/>
+            <Button x:Name="btnDelete" FontWeight="Bold" Background="#FFD68888" Content="Delete" HorizontalAlignment="Left" Margin="261,252,0,0" VerticalAlignment="Top" Width="90" Height="37" RenderTransformOrigin="0.227,0.433" Click="btnDelete_Click" />
+            <Button x:Name="btnReload" FontWeight="Bold" Content="Reload" HorizontalAlignment="Left" Margin="23,252,0,0" VerticalAlignment="Top" Height="37" Width="90" Background="#FFA0EBCD" Click="btnReload_Click"/>
+
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition Height="4.4*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <ListView x:Name="lvAccounts" MouseLeftButtonUp="lvAccountsMouseLeftButtonUp" MouseDoubleClick="lvAccounts_MouseDoubleClick" Loaded="lvAccounts_Loaded">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="AccountID" Width="70" DisplayMemberBinding="{Binding AccountId}"/>
+                            <GridViewColumn Header="AccountName" Width="110" DisplayMemberBinding="{Binding AccountName}"/>
+                            <GridViewColumn Header="AccountEmail" Width="150" DisplayMemberBinding="{Binding AccountEmail}"/>
+                            <GridViewColumn Header="AccountRole" Width="80" DisplayMemberBinding="{Binding AccountRole}"/>
+                            <GridViewColumn Header="AccountPass" Width="100" DisplayMemberBinding="{Binding AccountPassword}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+            <Grid Grid.Row="0">
+                <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="517,11,0,0" VerticalAlignment="Top" Width="84" Background="#FFF3D8D8" Click="btnSearch_Click"/>
+                <TextBox x:Name="txtSearch" Height="23" HorizontalAlignment="Left" Margin="358,10,0,0" TextWrapping="Wrap" Text="Enter account name" VerticalAlignment="Top" Width="154"/>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Window>
+
